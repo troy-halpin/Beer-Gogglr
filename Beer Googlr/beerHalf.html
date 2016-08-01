@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-1.12.4.min.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="pour"></div>
+            <div id="beaker">
+                <div class="beer-foam">
+                    <div class="foam-1"></div>
+                    <div class="foam-2"></div>
+                    <div class="foam-3"></div>
+                    <div class="foam-4"></div>
+                    <div class="foam-5"></div>
+                    <div class="foam-6"></div>
+                    <div class="foam-7"></div>
+                </div>
+                
+                <div id="liquid">
+                    
+                    <div class="bubble bubble1"></div>
+                    <div class="bubble bubble2"></div>
+                    <div class="bubble bubble3"></div>
+                    <div class="bubble bubble4"></div>
+                    <div class="bubble bubble5"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <style>
+        body { background-color: rgb(86,77,68) }
+        
+        h2 {
+            margin: 0 auto;
+            width: 400px;
+            font-size: 36px;
+            text-align: center;
+            font-family: 'Lato', Arial, sans-serif;
+            color: whiteSmoke;
+        }
+    
+    #container {
+        height: 370px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        top: -20px;
+        width: 248px;
+    }
+    
+    #container div { position: absolute; }
+    
+    .pour {
+        position: absolute;
+        left: 45%;
+        width: 20px;
+        height: 0px;
+        background-color: #faa22e;
+        border-radius: 10px
+    }
+    
+    #beaker {
+        border: 10px solid #FFF;
+        border-top: 0;
+        border-radius: 0 0 30px 30px;
+        height: 200px;
+        left: 14px;
+        bottom: 0;
+        width: 200px;
+    }
+    
+    #beaker:before,
+    #beaker:after {
+        border: 10px solid #FFF;
+        border-bottom: 0;
+        border-radius: 30px 30px 0 0;
+        content: '';
+        height: 30px;
+        position: absolute;
+        top: -40px;
+        width: 30px;
+    }
+    
+    #beaker:before { left: -50px; }
+    #beaker:after { right: -50px; }
+    
+    #liquid {
+        background-color: #faa22e;
+        border: 10px solid #faa22e;
+        border-radius: 0 0 20px 20px;
+        bottom: 0;
+        height: 0px;
+        overflow: hidden;
+        width: 180px;
+    }
+    
+    #liquid:after {
+        background-color: rgba(255, 255, 255, 0.25);
+        bottom: -10px;
+        content: '';
+        height: 200px;
+        left: -40px;
+        position: absolute;
+        transform: rotate(30deg);
+        -webkit-transform: rotate(15deg);
+        width: 110px;
+    }
+    
+    #liquid .bubble {
+        -webkit-animation-name: bubble;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        background-color: rgba(255, 255, 255, 0.2);
+        bottom: 0;
+        border-radius: 10px;
+        height: 20px;
+        width: 20px;
+    }
+    
+    @-webkit-keyframes bubble {
+        0% { bottom: 0; }
+        
+        50% {
+            background-color: rgba(255, 255, 255, 0.2);
+            bottom: 80px;
+        }
+        
+        100% {
+            background-color: rgba(255, 255, 255, 0);
+            bottom: 160px;
+        }
+    }
+    
+    .bubble1 {
+        left: 10px;
+        -webkit-animation-delay: 1000ms;
+        -webkit-animation-duration: 1000ms;
+    }
+    
+    .bubble2 {
+        left: 50px;
+        -webkit-animation-delay: 700ms;
+        -webkit-animation-duration: 1100ms;
+    }
+    
+    .bubble3 {
+        left: 100px;
+        -webkit-animation-delay: 1200ms;
+        -webkit-animation-duration: 1300ms;
+    }
+    
+    .bubble4 {
+        left: 130px;
+        -webkit-animation-delay: 1100ms;
+        -webkit-animation-duration: 700ms;
+    }
+    
+    .bubble5 {
+        left: 170px;
+        -webkit-animation-delay: 1300ms;
+        -webkit-animation-duration: 800ms;
+    }
+    
+    /* Foam */
+    
+    .beer-foam {
+        position: absolute;
+        bottom: 10px;
+    }
+    
+    .foam-1, .foam-2, .foam-3, .foam-4,
+    .foam-5, .foam-6, .foam-7 {
+        float: left;
+        position: absolute;
+        z-index: 999;
+        width: 50px;
+        height: 50px;
+        border-radius: 30px;
+        background-color: #fefefe;
+    }
+    .foam-1 {
+        top: -30px;
+        left: -10px;
+    }
+    .foam-2 {
+        top: -35px;
+        left: 20px;
+    }
+    .foam-3 {
+        top: -25px;
+        left: 50px;
+    }
+    .foam-4 {
+        top: -35px;
+        left: 80px;
+    }
+    .foam-5 {
+        top: -30px;
+        left: 110px;
+    }
+    .foam-6 {
+        top: -20px;
+        left: 140px;
+    }
+    .foam-7 {
+        top: -30px;
+        left: 160px;
+    }
+    </style>
+    <script>
+        $(document).ready(function() {
+                          $('.pour') //Pour Me Another Drink, Bartender!
+                          .delay(2000)
+                          .animate({
+                                   height: '360px'
+                                   }, 1500)
+                          .delay(1600)
+                          .slideUp(500);
+                          
+                          $('#liquid') // I Said Fill 'Er Up!
+                          .delay(3400)
+                          .animate({
+                                   height: '90px'
+                                   }, 2500);
+                          
+                          $('.beer-foam') // Keep that Foam Rollin' Toward the Top! Yahooo!
+                          .delay(3400)
+                          .animate({
+                                   bottom: '120px'
+                                   }, 2500);
+                          });
+        </script>
+</html>
